@@ -15,21 +15,14 @@ width, height = im.size
 f = open("ascii_image.txt", "w+")
 max = max(list(im.getdata()))
 grayscale = "@%#*+=-:."
-bla = len(grayscale)
-# for w in range(width):
-#     print("")
-#     for h in range(height):
-#         gray = im.getpixel((w,h))
-#         one = ((100 / max) * gray) / 100
-#         two = bla * one
-#         print(grayscale[int(two) - 1], end='')   
+dyn_range = len(grayscale)
 
 for w in range(width):
     f.write("\n")
     for h in range(height):
         gray = im.getpixel((w,h))
-        one = ((100 / max) * gray) / 100
-        two = bla * one
-        f.write(grayscale[int(two) - 1])
+        gray_index = ((1 / max) * gray) * dyn_range -1
+#         print(grayscale[int(gray_index)], end='')
+        f.write(grayscale[int(gray_index)])
 
         
